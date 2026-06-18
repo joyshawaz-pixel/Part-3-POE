@@ -7,68 +7,113 @@
   <meta name="description" content="Green Pulse Africa drives reforestation, renewable energy, and clean water projects across Africa. Volunteer or sponsor a project today.">
   <meta name="keywords" content="Green Pulse Africa, sustainability, reforestation, renewable energy, clean water, volunteer Africa">
   <meta name="robots" content="index, follow">
-
-  <!-- Open Graph tags for social sharing -->
   <meta property="og:title" content="Green Pulse Africa | Sustainable Projects in Sub-Saharan Africa">
   <meta property="og:description" content="Join us in driving climate resilience projects across Africa.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&h=630&fit=crop&q=80">
-  <meta property="og:image:alt" content="Community tree planting and reforestation project in Sub-Saharan Africa by Green Pulse Africa">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="/images/green-pulse-og.jpg">
   <meta property="og:url" content="https://your-site.netlify.app/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Green Pulse Africa">
-
-  <!-- Twitter Card tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Green Pulse Africa | Sustainable Projects in Sub-Saharan Africa">
-  <meta name="twitter:description" content="Join us in driving climate resilience projects across Africa.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&h=630&fit=crop&q=80">
 
   <style>
-    :root{--green-dark:#1a5d1a;--green:#2e7d32;--green-light:#f7fdf8;--green-accent:#4caf50;--error:#d93025;--success:#188038;--text:#333;--border:#e0e0e0;--radius:6px}
+    :root{
+      --green-dark:#0f3d0f;
+      --green:#2e7d32;
+      --green-light:#f1f8f4;
+      --green-accent:#4caf50;
+      --text:#222;
+      --muted:#666;
+      --border:#e0e0e0;
+      --radius:12px;
+      --shadow:0 8px 24px rgba(0,0,0,.08)
+    }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);line-height:1.6;background:#fff}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    h1,h2,h3{color:var(--green-dark);margin-bottom:15px}
-    h1{font-size:2.2rem}h2{font-size:1.7rem}h3{font-size:1.3rem}
-    p{margin-bottom:15px}
+    body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);line-height:1.7;background:#fff}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    h1,h2,h3{color:var(--green-dark);margin-bottom:16px;font-weight:700}
+    h1{font-size:3rem;line-height:1.2}
+    h2{font-size:2.2rem}
+    h3{font-size:1.4rem}
+    p{margin-bottom:16px;color:var(--muted)}
     a{color:var(--green);text-decoration:none}
     a:hover{text-decoration:underline}
-    header{background:var(--green-dark);color:#fff;padding:15px 0}
-    nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
-    nav a{color:#fff;font-weight:500;padding:8px 12px}
-    nav a:hover{background:var(--green);border-radius:var(--radius);text-decoration:none}
-    .about-section{padding:60px 20px;background:var(--green-light)}
-    .mission-vision{display:flex;gap:40px;flex-wrap:wrap;margin-top:30px}
-    .mission,.vision{flex:1 1 300px}
-    section{padding:50px 20px}
-    form{max-width:700px;margin:0 auto}
-    label{display:block;margin-top:15px;font-weight:600;color:var(--green-dark)}
-    input,textarea,select,button{width:100%;padding:12px;margin-top:5px;border:1px solid var(--border);border-radius:var(--radius);font-size:1rem;font-family:inherit}
-    input:focus,textarea:focus,select:focus{outline:2px solid var(--green-accent);border-color:var(--green-accent)}
-    input:invalid,textarea:invalid,select:invalid{border-color:var(--error)}
-    button{background:var(--green);color:#fff;border:none;cursor:pointer;margin-top:20px;font-weight:600;transition:background .3s ease}
-    button:hover{background:var(--green-dark)}
-    .error{color:var(--error);font-size:.85rem;margin-top:4px}
-    .success{color:var(--success);background:#e6f4ea;padding:14px;border-radius:var(--radius);margin-top:15px;border-left:4px solid var(--success)}
+
+    /* Header */
+    header{background:var(--green-dark);color:#fff;padding:18px 0;position:sticky;top:0;z-index:100}
+    nav{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+    nav a{color:#fff;font-weight:500;padding:8px 14px;border-radius:var(--radius);transition:background .3s}
+    nav a:hover{background:var(--green);text-decoration:none}
+
+    /* Hero */
+    .hero{
+      background:linear-gradient(rgba(15,61,15,.7),rgba(15,61,15,.7)), 
+                 url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b90?w=1600') center/cover no-repeat;
+      color:#fff;text-align:center;padding:120px 20px
+    }
+    .hero h1{color:#fff;margin-bottom:20px}
+    .hero p{color:#e8f5e9;font-size:1.2rem;max-width:700px;margin:0 auto 30px}
+    .btn{
+      display:inline-block;background:var(--green-accent);color:#fff;padding:14px 28px;
+      border-radius:var(--radius);font-weight:600;transition:transform .2s,background .3s
+    }
+    .btn:hover{background:var(--green);transform:translateY(-3px);text-decoration:none}
+
+    /* Sections */
+    section{padding:80px 20px}
+    .section-light{background:var(--green-light)}
+    .section-title{text-align:center;margin-bottom:50px}
+    .section-title p{max-width:700px;margin:0 auto}
+
+    /* Mission/Vision */
+    .mission-vision{display:flex;gap:40px;flex-wrap:wrap;margin-top:40px}
+    .card{
+      flex:1 1 320px;background:#fff;padding:32px;border-radius:var(--radius);
+      box-shadow:var(--shadow);transition:transform .3s
+    }
+    .card:hover{transform:translateY(-8px)}
+    .card-icon{font-size:2.5rem;margin-bottom:15px}
+
+    /* Image Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
+    .gallery-item{position:relative;overflow:hidden;border-radius:var(--radius);height:250px}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .gallery-item:hover img{transform:scale(1.1)}
+    .gallery-caption{
+      position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));
+      color:#fff;padding:20px;font-weight:600
+    }
+
+    /* FAQ Accordion */
     .faq{max-width:800px;margin:40px auto}
     .accordion{border-bottom:1px solid var(--border)}
-    .accordion-header{width:100%;text-align:left;padding:16px;font-size:1.1rem;font-weight:600;background:var(--green-light);border:none;cursor:pointer;position:relative;transition:background .3s}
-    .accordion-header:hover{background:#e8f5e9}
-    .accordion-header::after{content:'+';position:absolute;right:20px;font-size:1.4rem;transition:transform .3s ease}
+    .accordion-header{
+      width:100%;text-align:left;padding:20px;font-size:1.1rem;font-weight:600;
+      background:#fff;border:none;cursor:pointer;position:relative;transition:background .3s
+    }
+    .accordion-header:hover{background:var(--green-light)}
+    .accordion-header::after{
+      content:'+';position:absolute;right:20px;font-size:1.6rem;color:var(--green);
+      transition:transform .3s ease
+    }
     .accordion-header.active::after{content:'−'}
-    .accordion-body{max-height:0;overflow:hidden;transition:max-height .4s ease;background:#fff;padding:0 16px}
+    .accordion-body{
+      max-height:0;overflow:hidden;transition:max-height .4s ease;background:#fff;padding:0 20px
+    }
     .accordion-body p{padding:15px 0}
-    .filters{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:25px}
-    .filters input,.filters select{flex:1 1 200px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-    .card{border:1px solid var(--border);border-radius:var(--radius);padding:15px;background:#fff;transition:transform .2s ease,box-shadow .2s ease}
-    .card:hover{transform:translateY(-5px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
-    .card img{width:100%;height:180px;object-fit:cover;border-radius:4px;background:#f0f0f0}
-    .card h3{margin:12px 0 8px;color:var(--green)}
-    footer{background:var(--green-dark);color:#fff;text-align:center;padding:25px 20px;margin-top:50px}
-    @media(max-width:768px){h1{font-size:1.8rem}h2{font-size:1.4rem}.mission-vision{flex-direction:column;gap:20px}.filters{flex-direction:column}nav{flex-direction:column;align-items:center;gap:10px}}
+
+    /* Impact Stats */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-top:50px}
+    .stat{text-align:center}
+    .stat-number{font-size:2.8rem;font-weight:700;color:var(--green);margin-bottom:8px}
+    .stat-label{color:var(--muted);font-weight:500}
+
+    footer{background:var(--green-dark);color:#fff;text-align:center;padding:40px 20px;margin-top:50px}
+    footer p{color:#c8e6c9}
+
+    @media(max-width:768px){
+      h1{font-size:2.2rem}
+      h2{font-size:1.7rem}
+      .hero{padding:80px 20px}
+      .mission-vision{flex-direction:column;gap:20px}
+      nav{flex-direction:column;align-items:center;gap:10px}
+    }
   </style>
 </head>
 
@@ -83,31 +128,109 @@
     </nav>
   </header>
 
-  <main class="container">
-    <section class="about-section">
-      <h1>Green Pulse Africa</h1>
-      <h2>Building Climate Resilience Across Africa</h2>
+  <section class="hero">
+    <div class="container">
+      <h1>Building Climate Resilience Across Africa</h1>
       <p>We run reforestation, renewable energy, and clean water projects with local communities across Sub-Saharan Africa.</p>
+      <a href="/projects.html" class="btn">Explore Our Projects</a>
+    </div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Mission & Vision</h2>
+        <p>Empowering communities through practical, sustainable environmental solutions</p>
+      </div>
       <div class="mission-vision">
-        <div class="mission"><h3>Our Mission</h3><p>Empower communities through sustainable environmental solutions.</p></div>
-        <div class="vision"><h3>Our Vision</h3><p>A greener, more resilient Africa for future generations.</p></div>
+        <div class="card">
+          <div class="card-icon">🌱</div>
+          <h3>Our Mission</h3>
+          <p>Empower communities through sustainable environmental solutions that restore ecosystems and improve livelihoods.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌍</div>
+          <h3>Our Vision</h3>
+          <p>A greener, more resilient Africa where communities thrive in harmony with nature for future generations.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Our Approach</h3>
+          <p>Community-led projects that create jobs, restore land, and build long-term climate resilience.</p>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="faq">
-      <h2>Frequently Asked Questions</h2>
-      <div class="accordion">
-        <button class="accordion-header">What does Green Pulse Africa do?</button>
-        <div class="accordion-body"><p>We run reforestation, renewable energy, and clean water projects across Sub-Saharan Africa.</p></div>
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Impact in Action</h2>
+        <p>See the real change happening across Sub-Saharan Africa</p>
       </div>
-      <div class="accordion">
-        <button class="accordion-header">How can I volunteer?</button>
-        <div class="accordion-body"><p>Fill out the enquiry form and select “Volunteer”. We’ll get back to you within 48 hours.</p></div>
+      
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800" alt="Community tree planting project in Gauteng by Green Pulse Africa">
+          <div class="gallery-caption">Reforestation in Gauteng</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800" alt="Solar panels installed at rural school in KZN">
+          <div class="gallery-caption">Solar for Schools - KZN</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800" alt="Clean water borehole project in Limpopo">
+          <div class="gallery-caption">Clean Water Initiative - Limpopo</div>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <footer><p>© 2026 Green Pulse Africa. All rights reserved.</p></footer>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">50,000+</div>
+          <div class="stat-label">Trees Planted</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">25</div>
+          <div class="stat-label">Communities Reached</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Schools Powered by Solar</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">8,000+</div>
+          <div class="stat-label">People with Clean Water</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq">
+        <div class="accordion">
+          <button class="accordion-header">What does Green Pulse Africa do?</button>
+          <div class="accordion-body"><p>We run reforestation, renewable energy, and clean water projects across Sub-Saharan Africa in partnership with local communities.</p></div>
+        </div>
+        <div class="accordion">
+          <button class="accordion-header">How can I volunteer?</button>
+          <div class="accordion-body"><p>Fill out the enquiry form and select “Volunteer”. We’ll get back to you within 48 hours with upcoming opportunities.</p></div>
+        </div>
+        <div class="accordion">
+          <button class="accordion-header">Can I sponsor a specific project?</button>
+          <div class="accordion-body"><p>Yes. Choose a project on the enquiry page and we’ll share cost breakdowns and impact reports with you.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Green Pulse Africa. All rights reserved.</p>
+    <p>Johannesburg, South Africa | info@greenpulse.africa</p>
+  </footer>
 
   <script>
     const headers=document.querySelectorAll('.accordion-header');
