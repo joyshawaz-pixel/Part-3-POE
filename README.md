@@ -3,7 +3,7 @@
 A responsive 5-page website for a sustainability NGO operating in Sub-Saharan Africa.  
 Built for an on-page SEO assignment - 25/25 marks.
 
-**Live URL**: https://poepart3bytintsii.netlify.app  
+**Live URL**: https://part3bytintsii.netlify.app
 
 ---
 
