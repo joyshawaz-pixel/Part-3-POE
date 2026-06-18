@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Green Pulse Africa</title>
+  <meta name="description" content="Contact Green Pulse Africa for partnerships, media enquiries, or general information about our sustainability projects.">
+  <meta name="keywords" content="contact Green Pulse Africa, get in touch, NGO contact Johannesburg">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Contact Us | Green Pulse Africa">
+  <meta property="og:description" content="Reach out to our team in Johannesburg. We're here to help.">
+  <meta property="og:url" content="https://your-site.netlify.app/contact.html">
+
+  <style>
+    :root{--green-dark:#1a5d1a;--green:#2e7d32;--green-light:#f7fdf8;--green-accent:#4caf50;--error:#d93025;--success:#188038;--text:#333;--border:#e0e0e0;--radius:6px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);line-height:1.6;background:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    h1,h2,h3{color:var(--green-dark);margin-bottom:15px}
+    h1{font-size:2.2rem}h2{font-size:1.7rem}h3{font-size:1.3rem}
+    p{margin-bottom:15px}
+    a{color:var(--green);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{background:var(--green-dark);color:#fff;padding:15px 0}
+    nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+    nav a{color:#fff;font-weight:500;padding:8px 12px}
+    nav a:hover{background:var(--green);border-radius:var(--radius);text-decoration:none}
+    section{padding:50px 20px}
+    form{max-width:700px;margin:0 auto}
+    label{display:block;margin-top:15px;font-weight:600;color:var(--green-dark)}
+    input,textarea,select,button{width:100%;padding:12px;margin-top:5px;border:1px solid var(--border);border-radius:var(--radius);font-size:1rem;font-family:inherit}
+    input:focus,textarea:focus,select:focus{outline:2px solid var(--green-accent);border-color:var(--green-accent)}
+    input:invalid,textarea:invalid,select:invalid{border-color:var(--error)}
+    button{background:var(--green);color:#fff;border:none;cursor:pointer;margin-top:20px;font-weight:600;transition:background .3s ease}
+    button:hover{background:var(--green-dark)}
+    .error{color:var(--error);font-size:.85rem;margin-top:4px}
+    .success{color:var(--success);background:#e6f4ea;padding:14px;border-radius:var(--radius);margin-top:15px;border-left:4px solid var(--success)}
+    footer{background:var(--green-dark);color:#fff;text-align:center;padding:25px 20px;margin-top:50px}
+    @media(max-width:768px){h1{font-size:1.8rem}h2{font-size:1.4rem}nav{flex-direction:column;align-items:center;gap:10px}}
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/enquiry.html">Enquiry</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1>Contact Us</h1>
+      <h2>Send Us a Message</h2>
+      <form id="contactForm" action="https://formspree.io/f/your-id" method="POST" novalidate>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+        <div id="contactResponse"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer><p>© 2026 Green Pulse Africa. All rights reserved.</p></footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      document.getElementById('contactResponse').innerHTML='<div class="success">Message sent! We’ll reply within 48 hours.</div>';
+      fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
+      this.reset()
+    })
+  </script>
+</body>
+</html>

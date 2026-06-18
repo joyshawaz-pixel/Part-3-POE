@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Projects | Green Pulse Africa</title>
+  <meta name="description" content="Explore Green Pulse Africa's current projects in reforestation, solar energy, and clean water across Gauteng, KZN, and Limpopo.">
+  <meta name="keywords" content="Green Pulse Africa projects, tree planting, solar schools, clean water initiative">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Our Projects | Green Pulse Africa">
+  <meta property="og:description" content="See how we're making an impact with reforestation, renewable energy, and water projects.">
+  <meta property="og:url" content="https://your-site.netlify.app/projects.html">
+
+  <style>
+    :root{--green-dark:#1a5d1a;--green:#2e7d32;--green-light:#f7fdf8;--green-accent:#4caf50;--error:#d93025;--success:#188038;--text:#333;--border:#e0e0e0;--radius:6px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);line-height:1.6;background:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    h1,h2,h3{color:var(--green-dark);margin-bottom:15px}
+    h1{font-size:2.2rem}h2{font-size:1.7rem}h3{font-size:1.3rem}
+    p{margin-bottom:15px}
+    a{color:var(--green);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{background:var(--green-dark);color:#fff;padding:15px 0}
+    nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+    nav a{color:#fff;font-weight:500;padding:8px 12px}
+    nav a:hover{background:var(--green);border-radius:var(--radius);text-decoration:none}
+    section{padding:50px 20px}
+    .filters{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:25px}
+    .filters input,.filters select{flex:1 1 200px;padding:12px;border:1px solid var(--border);border-radius:var(--radius);font-size:1rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+    .card{border:1px solid var(--border);border-radius:var(--radius);padding:15px;background:#fff;transition:transform .2s ease,box-shadow .2s ease}
+    .card:hover{transform:translateY(-5px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+    .card img{width:100%;height:180px;object-fit:cover;border-radius:4px;background:#f0f0f0}
+    .card h3{margin:12px 0 8px;color:var(--green)}
+    footer{background:var(--green-dark);color:#fff;text-align:center;padding:25px 20px;margin-top:50px}
+    @media(max-width:768px){h1{font-size:1.8rem}h2{font-size:1.4rem}.filters{flex-direction:column}nav{flex-direction:column;align-items:center;gap:10px}}
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/enquiry.html">Enquiry</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="projects">
+      <h1>Our Projects</h1>
+      <h2>Current Initiatives</h2>
+
+      <div class="filters">
+        <input type="text" id="searchInput" placeholder="Search projects...">
+        <select id="locationFilter">
+          <option value="">All Locations</option>
+          <option value="Gauteng">Gauteng</option>
+          <option value="KZN">KwaZulu-Natal</option>
+          <option value="Limpopo">Limpopo</option>
+        </select>
+        <select id="typeFilter">
+          <option value="">All Types</option>
+          <option value="Reforestation">Reforestation</option>
+          <option value="Renewable Energy">Renewable Energy</option>
+          <option value="Water">Water</option>
+        </select>
+        <select id="sortFilter">
+          <option value="name">Sort by Name</option>
+          <option value="date">Sort by Date</option>
+        </select>
+      </div>
+
+      <div id="projectGrid" class="grid"></div>
+      <p id="noResults" style="display:none;">No projects found.</p>
+    </section>
+  </main>
+
+  <footer><p>© 2026 Green Pulse Africa. All rights reserved.</p></footer>
+
+  <script>
+    const projects=[
+      {
+        name:"Tree Planting Drive", 
+        location:"Gauteng", 
+        type:"Reforestation", 
+        date:"2026-11-15", 
+        img:"https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80",
+        alt:"Community reforestation and tree planting project in Gauteng, South Africa by Green Pulse Africa",
+        desc:"Planting 5000 trees with local schools to restore degraded land and improve air quality."
+      },
+      {
+        name:"Solar for Schools", 
+        location:"KZN", 
+        type:"Renewable Energy", 
+        date:"2026-12-01", 
+        img:"https://images.unsplash.com/photo-1509391366360-2e9597848f88?w=800&q=80",
+        alt:"Solar panel installation for renewable energy in rural KwaZulu-Natal schools by Green Pulse Africa",
+        desc:"Installing solar panels in 10 rural schools to provide clean, reliable electricity for learning."
+      },
+      {
+        name:"Clean Water Initiative", 
+        location:"Limpopo", 
+        type:"Water", 
+        date:"2027-01-20", 
+        img:"https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
+        alt:"Clean water borehole and water purification project in Limpopo, South Africa by Green Pulse Africa",
+        desc:"Building boreholes and water purification systems to give 2000 people access to safe drinking water."
+      }
+    ];
+
+    const grid=document.getElementById('projectGrid');
+    const searchInput=document.getElementById('searchInput');
+    const locationFilter=document.getElementById('locationFilter');
+    const typeFilter=document.getElementById('typeFilter');
+    const sortFilter=document.getElementById('sortFilter');
+
+    function renderProjects(data){
+      grid.innerHTML='';
+      if(data.length===0){
+        document.getElementById('noResults').style.display='block';
+        return
+      }
+      document.getElementById('noResults').style.display='none';
+      data.forEach(p=>{
+        grid.innerHTML+=`
+          <div class="card">
+            <img src="${p.img}" alt="${p.alt}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22180%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22180%22/%3E%3Ctext fill=%22%23999%22 x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2216%22%3EImage not available%3C/text%3E%3C/svg%3E'">
+            <h3>${p.name}</h3>
+            <p><strong>Location:</strong> ${p.location}</p>
+            <p><strong>Type:</strong> ${p.type}</p>
+            <p>${p.desc}</p>
+          </div>
+        `
+      })
+    }
+
+    function updateProjects(){
+      let filtered=[...projects];
+      if(searchInput.value){
+        const term=searchInput.value.toLowerCase();
+        filtered=filtered.filter(p=>p.name.toLowerCase().includes(term)||p.desc.toLowerCase().includes(term))
+      }
+      if(locationFilter.value)filtered=filtered.filter(p=>p.location===locationFilter.value);
+      if(typeFilter.value)filtered=filtered.filter(p=>p.type===typeFilter.value);
+      if(sortFilter.value==='date')filtered.sort((a,b)=>new Date(a.date)-new Date(b.date));
+      else filtered.sort((a,b)=>a.name.localeCompare(b.name));
+      renderProjects(filtered)
+    }
+
+    searchInput.addEventListener('input',updateProjects);
+    locationFilter.addEventListener('change',updateProjects);
+    typeFilter.addEventListener('change',updateProjects);
+    sortFilter.addEventListener('change',updateProjects);
+    renderProjects(projects)
+  </script>
+</body>
+</html>

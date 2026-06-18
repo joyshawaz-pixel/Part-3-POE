@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer & Sponsor Enquiry | Green Pulse Africa</title>
+  <meta name="description" content="Enquire about volunteering or sponsoring a Green Pulse Africa project. Get details on costs, availability, and next steps.">
+  <meta name="keywords" content="volunteer Africa, sponsor project, Green Pulse Africa enquiry">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Volunteer & Sponsor Enquiry | Green Pulse Africa">
+  <meta property="og:description" content="Join our projects as a volunteer or sponsor. Submit your enquiry here.">
+  <meta property="og:url" content="https://your-site.netlify.app/enquiry.html">
+
+  <style>
+    :root{--green-dark:#1a5d1a;--green:#2e7d32;--green-light:#f7fdf8;--green-accent:#4caf50;--error:#d93025;--success:#188038;--text:#333;--border:#e0e0e0;--radius:6px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);line-height:1.6;background:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    h1,h2,h3{color:var(--green-dark);margin-bottom:15px}
+    h1{font-size:2.2rem}h2{font-size:1.7rem}h3{font-size:1.3rem}
+    p{margin-bottom:15px}
+    a{color:var(--green);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{background:var(--green-dark);color:#fff;padding:15px 0}
+    nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+    nav a{color:#fff;font-weight:500;padding:8px 12px}
+    nav a:hover{background:var(--green);border-radius:var(--radius);text-decoration:none}
+    section{padding:50px 20px}
+    form{max-width:700px;margin:0 auto}
+    label{display:block;margin-top:15px;font-weight:600;color:var(--green-dark)}
+    input,textarea,select,button{width:100%;padding:12px;margin-top:5px;border:1px solid var(--border);border-radius:var(--radius);font-size:1rem;font-family:inherit}
+    input:focus,textarea:focus,select:focus{outline:2px solid var(--green-accent);border-color:var(--green-accent)}
+    input:invalid,textarea:invalid,select:invalid{border-color:var(--error)}
+    button{background:var(--green);color:#fff;border:none;cursor:pointer;margin-top:20px;font-weight:600;transition:background .3s ease}
+    button:hover{background:var(--green-dark)}
+    .error{color:var(--error);font-size:.85rem;margin-top:4px}
+    .success{color:var(--success);background:#e6f4ea;padding:14px;border-radius:var(--radius);margin-top:15px;border-left:4px solid var(--success)}
+    footer{background:var(--green-dark);color:#fff;text-align:center;padding:25px 20px;margin-top:50px}
+    @media(max-width:768px){h1{font-size:1.8rem}h2{font-size:1.4rem}nav{flex-direction:column;align-items:center;gap:10px}}
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/enquiry.html">Enquiry</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="enquiry">
+      <h1>Volunteer & Sponsor Enquiry</h1>
+      <h2>Get Involved with Green Pulse Africa</h2>
+      <form id="enquiryForm" action="https://formspree.io/f/your-id" method="POST" novalidate>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required minlength="3">
+        <small class="error" id="nameError"></small>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <small class="error" id="emailError"></small>
+
+        <label for="type">Enquiry Type</label>
+        <select id="type" name="type" required>
+          <option value="">-- Select --</option>
+          <option value="volunteer">Volunteer</option>
+          <option value="sponsor">Sponsor a Project</option>
+        </select>
+        <small class="error" id="typeError"></small>
+
+        <label for="project">Project Interest</label>
+        <select id="project" name="project" required>
+          <option value="">-- Select --</option>
+          <option value="tree-planting">Tree Planting - Gauteng</option>
+          <option value="solar-school">Solar for Schools - KZN</option>
+          <option value="clean-water">Clean Water Initiative - Limpopo</option>
+        </select>
+        <small class="error" id="projectError"></small>
+
+        <button type="submit">Submit Enquiry</button>
+        <div id="enquiryResponse"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer><p>© 2026 Green Pulse Africa. All rights reserved.</p></footer>
+
+  <script>
+    const form=document.getElementById('enquiryForm');
+    const responseDiv=document.getElementById('enquiryResponse');
+    const projectInfo={'tree-planting':{cost:'R500 per volunteer',availability:'Next intake: 15 Nov 2026'},'solar-school':{cost:'R2000 per panel',availability:'Ongoing'},'clean-water':{cost:'R1500 per pack',availability:'Jan 2027'}};
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      document.querySelectorAll('.error').forEach(el=>el.textContent='');
+      let valid=true;
+      if(form.name.value.trim().length<3){document.getElementById('nameError').textContent='Name must be at least 3 characters.';valid=false}
+      if(!form.email.value.includes('@')){document.getElementById('emailError').textContent='Enter a valid email.';valid=false}
+      if(!valid)return;
+      const info=projectInfo[form.project.value];
+      responseDiv.innerHTML=`<div class="success"><h3>Thanks ${form.name.value}!</h3><p><strong>Cost:</strong> ${info.cost}</p><p><strong>Availability:</strong> ${info.availability}</p></div>`;
+      fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      form.reset()
+    })
+  </script>
+</body>
+</html>
